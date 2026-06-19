@@ -1,0 +1,65 @@
+1. Mohini
+
+Result Summary
+Total Questions: 26
+Correct Answers: 10 
+Incorrect Answers: 16 
+Score: 10/26
+Percentage: 38.46%
+
+Performance Assessment
+Grade: Needs Improvement
+---------------------------------------------------------------------
+Pritam 
+
+Result Summary
+Total Questions: 26
+Correct Answers: 20 
+Incorrect : 6 
+Marks Obtained: 40 / 52
+Percentage: 76.92%
+Performance Assessment
+Grade: Good
+
+---------------------------------------------------------------------------
+Pallab
+
+Result Summary
+Total Questions: 26
+Correct Answers: 19 
+Incorrect: 7 
+Marks Obtained: 38 / 52
+Percentage: 73.08%
+Performance Assessment
+Grade: Good 
+--------------------------------------------------------------------------
+currect Answer
+
+| No. | Question                                         | Correct Answer                               |
+| --- | ------------------------------------------------ | -------------------------------------------- |
+| 1   | Purpose of `htmlspecialchars()`                  | **C. Prevent XSS attacks**                   |
+| 2   | Safest method for database queries               | **B. Prepared Statements**                   |
+| 3   | Vulnerability in given SQL code                  | **C. SQL Injection**                         |
+| 4   | Preferred MySQL extension                        | **B. mysqli / PDO**                          |
+| 5   | Recommended password storage                     | **D. password_hash()**                       |
+| 6   | Password verification function                   | **C. password_verify()**                     |
+| 7   | Purpose of `session_regenerate_id()`             | **B. Prevent Session Fixation**              |
+| 8   | HTTP method for login forms                      | **B. POST**                                  |
+| 9   | What should be stored in session after login     | **C. User ID**                               |
+| 10  | File for database credentials                    | **B. config.php**                            |
+| 11  | Purpose of CSRF Token                            | **B. Prevent Cross-Site Request Forgery**    |
+| 12  | Advantage of `require_once`                      | **B. Includes file only once**               |
+| 13  | Retrieve only 10 records                         | **C. LIMIT 10**                              |
+| 14  | Improves search performance                      | **C. Database Index**                        |
+| 15  | Function to safely escape output                 | **B. htmlspecialchars()**                    |
+| 16  | Function to check variable existence             | **C. isset()**                               |
+| 17  | File used to ignore sensitive information in Git | **C. .gitignore**                            |
+| 18  | Remove all rows but keep table structure         | **B. TRUNCATE**                              |
+| 19  | Remove table completely                          | **C. DROP TABLE**                            |
+| 20  | Null Coalescing operator                         | **B. ??**                                    |
+| 21  | Efficient query to find users without orders     | **B. LEFT JOIN ... WHERE orders.id IS NULL** |
+| 22  | GET data is visible in                           | **B. URL**                                   |
+| 23  | Ternary operator                                 | **B. ? :**                                   |
+| 24  | Concatenation operator                           | **C. .**                                     |
+| 25  | String length function                           | **C. strlen()**                              |
+| 26  | Loop that executes at least once                 | **C. do while**                              |
