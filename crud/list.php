@@ -31,7 +31,7 @@ session_start();
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">id</th>
+      <!-- <th scope="col">id</th> -->
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
@@ -57,14 +57,14 @@ session_start();
         
       <tr>
         <td><?= $index ++ ?></td>
-        <td><?= $rows['id']?></td>
+        <!-- <td><?= $rows['id']?></td> -->
         <td><?= $rows['name']?></td>
         <td><?= $rows['email']?></td>
         <td><?= $rows['phone']?></td>
         <td><?= $rows['city'] ?></td>
         <td><?= $rows['address']?></td>
-        <td><a href='' class="btn btn-primary">Edit</a></td>
-        <td><a href='' class="btn btn-danger">Delete</a></td>
+        <td><a href='edit.php?id=<?= $rows['id'] ?>' class="btn btn-primary">Update</a></td>
+        <td><a href='query/delete.php?id=<?= $rows['id'] ?>' class="btn btn-danger">Delete</a></td>
       </tr>
       
       <?php } ?>
