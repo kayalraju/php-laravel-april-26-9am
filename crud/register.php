@@ -1,14 +1,3 @@
-<?php
-session_start();
-include "dbcon.php";
-
-if(!isset( $_SESSION['id']))
-{
-    header("location:login.php");
-    exit();
-}
-
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,9 +9,9 @@ if(!isset( $_SESSION['id']))
 </head>
 <body>
 <div class="container">
-  <h1 class="mt-4 mb-4">Add Student</h1>
+  <h1 class="mt-4 mb-4">Register</h1>
 
-  <form action="./query/insert.php" method="post" >
+  <form action="./query/register.php" method="post" >
       <div class="form-group">
           <label>Name</label>
           <input type="text" class="form-control" name="name" >
@@ -42,18 +31,18 @@ if(!isset( $_SESSION['id']))
       </div>
 
       <div class="form-group">
-          <label>City</label>
-          <input type="text" class="form-control" name="city" >
+          <label>password</label>
+          <input type="password" class="form-control" name="password" >
           
       </div>
       <div class="form-group">
-          <label>Address</label>
-          <input type="text" class="form-control" name="address" >
+          <label>Confirm Password</label>
+          <input type="password" class="form-control" name="c_password" >
           
       </div>
+    
 
-
-      <button type="submit" class="btn btn-primary" name="addstudent">Add Student</button>
+      <button type="submit" class="btn btn-primary" name="register">Register</button>
   </form>
 </div>
 </body>

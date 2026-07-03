@@ -1,6 +1,14 @@
 
 <?php
 session_start();
+include "dbcon.php";
+
+if(!isset( $_SESSION['id']))
+{
+    header("location:login.php");
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

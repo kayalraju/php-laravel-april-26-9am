@@ -1,3 +1,14 @@
+<?php
+session_start();
+include "dbcon.php";
+
+if(!isset( $_SESSION['id']))
+{
+    header("location:login.php");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +20,6 @@
 </head>
 <body>
     <?php
-    include('dbcon.php');
     $id=$_GET['id'];
     $sql="select * from students where id='$id'";
     $query=mysqli_query($conn,$sql);

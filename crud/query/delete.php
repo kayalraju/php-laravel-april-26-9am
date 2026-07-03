@@ -1,6 +1,11 @@
 <?php
 session_start();
 include('../dbcon.php');
+if(!isset( $_SESSION['id']))
+{
+    header("location:../login.php");
+    exit();
+}
 
 $id=$_GET['id'];
 $sql="delete from students where id='$id'";
