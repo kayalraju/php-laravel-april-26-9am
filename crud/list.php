@@ -33,7 +33,7 @@ if(!isset( $_SESSION['id']))
         </div>
     <?php endif; ?>
     <a href="add.php" class="btn btn-info"> Add Student</a>
-    
+    <h1>Welcome <?php echo $_SESSION['name']; ?></h1>
 
     <table class="table">
   <thead>
@@ -45,6 +45,7 @@ if(!isset( $_SESSION['id']))
       <th scope="col">Phone</th>
       <th scope="col">City</th>
       <th scope="col">Address</th>
+      <th scope="col">Image</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -71,6 +72,7 @@ if(!isset( $_SESSION['id']))
         <td><?= $rows['phone']?></td>
         <td><?= $rows['city'] ?></td>
         <td><?= $rows['address']?></td>
+        <td><img src="./upload/<?= $rows['image'] ?>" alt="Image" width="100" height="100"></td>
         <td><a href='edit.php?id=<?= $rows['id'] ?>' class="btn btn-primary">Update</a></td>
         <td><a href='query/delete.php?id=<?= $rows['id'] ?>' class="btn btn-danger">Delete</a></td>
       </tr>

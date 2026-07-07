@@ -28,7 +28,7 @@ if(!isset( $_SESSION['id']))
 <div class="container">
   <h1 class="mt-4 mb-4">Update Student</h1>
 
-  <form action="./query/update.php" method="post" >
+  <form action="./query/update.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $rows['id'] ?>" >
       <div class="form-group">
           <label>Name</label>
@@ -58,7 +58,16 @@ if(!isset( $_SESSION['id']))
           <input type="text" class="form-control" name="address" value="<?= $rows['address'] ?>" >
           
       </div>
-
+      <div class="form-group">
+          <label>Image</label>
+          <input type="file" class="form-control" name="image" >
+          
+      </div>
+      <?php if($rows['image']): ?>
+        <div class="form-group">
+          <img src="./upload/<?= $rows['image'] ?>" alt="Current Image" width="100" height="100">
+        </div>
+      <?php endif; ?>
 
       <button type="submit" class="btn btn-primary" name="updatestudent">Update Student</button>
   </form>

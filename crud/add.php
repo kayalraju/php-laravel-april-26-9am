@@ -22,7 +22,7 @@ if(!isset( $_SESSION['id']))
 <div class="container">
   <h1 class="mt-4 mb-4">Add Student</h1>
 
-  <form action="./query/insert.php" method="post" >
+  <form action="./query/insert.php" method="post" enctype="multipart/form-data">
       <div class="form-group">
           <label>Name</label>
           <input type="text" class="form-control" name="name" >
@@ -49,6 +49,11 @@ if(!isset( $_SESSION['id']))
       <div class="form-group">
           <label>Address</label>
           <input type="text" class="form-control" name="address" >
+          
+      </div>
+      <div class="form-group">
+          <label>image</label>
+          <input type="file" class="form-control" name="image" >
           
       </div>
 
