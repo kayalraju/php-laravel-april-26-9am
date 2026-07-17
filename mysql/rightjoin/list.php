@@ -1,24 +1,6 @@
 <?php
 
-include "dbcon.php";
-
-$sql = "
-    SELECT 
-        employee.id,
-        employee.name AS employee_name,
-        employee.counrty,
-        employee.salary,
-        department.department_name,
-        department.location
-    FROM employee
-    LEFT JOIN department
-    ON employee.department_id = department.id
-    ORDER BY employee.created_at DESC
-    LIMIT 5
-   
-";
-
-//left join with where condition
+include "db.php";
 
 // $sql = "
 //     SELECT 
@@ -29,10 +11,25 @@ $sql = "
 //         department.department_name,
 //         department.location
 //     FROM employee
-//     LEFT JOIN department
+//     RIGHT JOIN department
 //     ON employee.department_id = department.id
-//     WHERE employee.counrty = 'Spain' OR employee.counrty = 'Germany'
 // ";
+
+//right join with where condition
+
+$sql = "
+    SELECT 
+        employee.id,
+        employee.name,
+        employee.counrty,
+        employee.salary,
+        department.department_name,
+        department.location
+    FROM employee
+    RIGHT JOIN department
+    ON employee.department_id = department.id
+    WHERE employee.counrty = 'Spain' OR employee.counrty = 'Germany'
+";
 
 
 //left join nested where condition
@@ -61,7 +58,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Employee & Department (LEFT JOIN)</title>
+    <title>Employee & Department (RIGHT JOIN)</title>
 
     <style>
         body{
@@ -100,7 +97,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<h2>Employee & Department Details (LEFT JOIN)</h2>
+<h2>Employee & Department Details (RIGHT JOIN)</h2>
 
 <table>
 
@@ -121,7 +118,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 <td><?= htmlspecialchars($row['id']) ?></td>
 
-                <td><?= htmlspecialchars($row['employee_name']) ?></td>
+                <td><?= htmlspecialchars($row['name']) ?></td>
 
                 <td><?= htmlspecialchars($row['counrty']) ?></td>
 
