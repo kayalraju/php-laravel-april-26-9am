@@ -38,7 +38,9 @@ Email : <input type="email" id="email"> <br><br>
 Phone : <input type="text" id="phone"> <br><br>
 <button id="save">Save</button>
 </form>
-<div id="result"></div>
+<div id="result">
+    
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
