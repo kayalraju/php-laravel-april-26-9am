@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>About page</h1>
 
-    <a href="{{ URL('/') }}">Home</a> | 
-    <a href="{{ URL('/contact') }}">Contact</a>
+    <h1>contact page</h1>
+
+      <a href="{{ URL('/') }}">Home</a> | 
+    <a href="{{ URL('/about') }}">About</a>
+    
 </body>
 </html>
