@@ -1,12 +1,13 @@
 <?php
 
+use App\Http\Controllers\BladetempleteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FilehandalingController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('home');
 
 
 Route::get('/about',[HomeController::class,'about']);
@@ -45,3 +46,8 @@ Route::prefix('admin')->group(function(){
 
 Route::get('/student',[FilehandalingController::class,'index'])->name('stuent.form.view');
 Route::post('/student/create',[FilehandalingController::class,'store'])->name('student.form.store');
+
+//blade templete engine
+
+Route::get('/',[BladetempleteController::class,'index'])->name('home.view');
+Route::get('/about',[BladetempleteController::class,'about'])->name('about.view');
