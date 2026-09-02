@@ -51,3 +51,7 @@ Route::post('/student/create',[FilehandalingController::class,'store'])->name('s
 
 Route::get('/',[BladetempleteController::class,'index'])->name('home.view');
 Route::get('/about',[BladetempleteController::class,'about'])->name('about.view');
+Route::get('/contact',[BladetempleteController::class,'contact'])->name('contact.view');
+
+//resource controller route
+Route::resource('/product',\App\Http\Controllers\ProductController::class);

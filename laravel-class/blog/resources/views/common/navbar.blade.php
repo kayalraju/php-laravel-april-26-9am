@@ -14,7 +14,7 @@
        
         <li><a href="courses.html">Courses</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="{{ route('contact.view') }}">Contact</a></li>
         <li><a href="contact.html">Login</a></li>
 
       </ul>
