@@ -3,6 +3,7 @@
 use App\Http\Controllers\BladetempleteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FilehandalingController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -55,3 +56,13 @@ Route::get('/contact',[BladetempleteController::class,'contact'])->name('contact
 
 //resource controller route
 Route::resource('/product',\App\Http\Controllers\ProductController::class);
+
+//card app
+Route::get('/student',[StudentController::class,'index'])->name('student.view');
+Route::get('/student/create',[StudentController::class,'create'])->name('student.create');
+Route::post('/student',[StudentController::class,'store'])->name('student.store');
+Route::get('/student/{id}',[StudentController::class,'edit'])->name('student.edit');
+Route::put('/student/{id}',[StudentController::class,'update'])->name('student.update');
+Route::get('/student/delete/{id}',[StudentController::class,'destroy'])->name('student.destroy');
+
+Route::get('/student/view/{id}',[StudentController::class,'view'])->name('student.single.view');
