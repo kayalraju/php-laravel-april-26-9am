@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BladetempleteController;
 use App\Http\Controllers\HomeController;
@@ -93,3 +94,26 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::get('/student/view/{id}',[StudentController::class,'view'])->name('student.single.view');
     });
 
+
+
+
+
+    //admin login using admin gard 
+
+  Route::prefix('admin')->group(function(){
+    Route::get('/login',[AdminLoginController::class,'login'])->name('login.view');
+    Route::Post('/login/store',[AdminLoginController::class,'loginstore'])->name('login.store');
+    Route::post('logout', [AdminLoginController::class, 'logout'])->name('logout');
+
+    Route::middleware('auth.admin')->group(function () {
+        //Route::get('/dashboard',[AdminLoginController::class,'dashboard'])->name('dashboard.view');
+         Route::get('dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard.view');
+
+        
+    
+    });
+    
+    
+});

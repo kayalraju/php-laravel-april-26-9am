@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\AgeCheck;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -15,8 +16,13 @@ return Application::configure(basePath: dirname(__DIR__))
         //for global middleware
         //$middleware->append(AgeCheck::class);
 
-        $middleware->appendToGroup("checkAge",[
-            AgeCheck::class
+        // $middleware->appendToGroup("checkAge",[
+        //     AgeCheck::class
+        // ]);
+        $middleware->alias([
+            'auth.admin' => AdminMiddleware::class,
+            // 'auth' => AuthMiddleware::class
+
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
