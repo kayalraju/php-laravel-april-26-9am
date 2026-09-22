@@ -6,6 +6,7 @@ use App\Http\Controllers\BladetempleteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FilehandalingController;
 use App\Http\Controllers\MiddlewarePractice;
+use App\Http\Controllers\OneToOneController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,9 +14,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -117,3 +122,11 @@ Route::middleware(['auth', 'verified'])->group(function(){
     
     
 });
+
+
+//One to one relation
+Route::get('/author',[OneToOneController::class,'author'])->name('author.view');
+Route::post('/author/create',[OneToOneController::class,'createauthor'])->name('author.create');
+Route::get('/blog/create',[OneToOneController::class,'createblog'])->name('createblog');
+Route::post('/blog/store',[OneToOneController::class,'blogstore'])->name('blog.store');
+Route::get('/list',[OneToOneController::class,'list'])->name('blog.list');
