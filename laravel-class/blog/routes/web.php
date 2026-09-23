@@ -6,6 +6,7 @@ use App\Http\Controllers\BladetempleteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FilehandalingController;
 use App\Http\Controllers\MiddlewarePractice;
+use App\Http\Controllers\OneToManyController;
 use App\Http\Controllers\OneToOneController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -130,3 +131,10 @@ Route::post('/author/create',[OneToOneController::class,'createauthor'])->name('
 Route::get('/blog/create',[OneToOneController::class,'createblog'])->name('createblog');
 Route::post('/blog/store',[OneToOneController::class,'blogstore'])->name('blog.store');
 Route::get('/list',[OneToOneController::class,'list'])->name('blog.list');
+
+//one to many relation
+Route::get('/department',[OneToManyController::class,'department'])->name('department.view');
+Route::post('/department/create',[OneToManyController::class,'departmentCreate'])->name('deperment.store');
+Route::get('/employee',[OneToManyController::class,'employee'])->name('employee.view');
+Route::post('/employee/create',[OneToManyController::class,'employeecreate'])->name('employee.store');
+Route::get('/employee/department',[OneToManyController::class,'employeedepartment'])->name('employee.department.view');
