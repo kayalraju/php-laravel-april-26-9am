@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCourseRequest;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use Throwable;
+use Illuminate\Support\Facades\Log;
 
 class CourseController extends Controller
 {
@@ -16,18 +19,36 @@ class CourseController extends Controller
         'data' => $courses
     ], 200);
  }
-    public function store(Request $request)
+   public function store(StoreCourseRequest $request)
     {
-        $course = new Course();
-        $course->name = $request->name;
-        $course->description = $request->description;
-        $course->duration = $request->duration;
-        $course->save();
-        return response()->json([
-            'success'=> true,
-            'message' => 'Course Created Successfully',
-            'data' => $course
-        ], 201);
+        // php artisan make:request StoreCourseRequest
+        try {
+
+            $course = Course::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'duration' => $request->duration,
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Course created successfully',
+                'data' => $course
+            ], 201);
+
+        } catch (Throwable $e) {
+
+            Log::error('Course creation failed', [
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+            ]);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Unable to create course',
+            ], 500);
+        }
     }
 
     public function show($id){
